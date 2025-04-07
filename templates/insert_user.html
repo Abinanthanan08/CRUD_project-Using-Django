@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body{
+        background-color:lightgray;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 200px;
+
+    }
+
+    form {
+        width: 300px;
+        background-color:teal;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        color: white;
+        text-align: center;
+    }
+
+    input[type="text"], input[type="email"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: none;
+        border-radius: 5px;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        background-color: white;
+        color: black;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    
+    <form method="POST">
+        {% csrf_token %}
+        
+        <h1>Add User</h1>
+
+        <input type="text" name="name" placeholder="Enter Name" required>
+
+        <br>
+        
+        <input type="email" name="email" placeholder="Enter Email" required>
+        <br>
+
+        <button type="submit">Add User</button>
+    </form>
+    
+    
+</body>
+</html>

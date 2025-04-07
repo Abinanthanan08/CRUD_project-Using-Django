@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+
+    body{
+        background-color:lightgray;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 200px;
+
+    }
+    
+
+    table {
+        background-color:lightblue;
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color:gray;
+    }
+
+    a {
+        text-decoration: none;
+        color: white;
+        padding: 5px 10px;
+        background-color: gray;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    #new {
+        margin-top: 80px;
+        text-align: center;
+    }
+</style>
+<body>
+
+    <div>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.1 }}</td>
+            <td>{{ user.2 }}</td>
+            <td>
+                <a href="{% url 'update_user' user.0 %}">Edit</a>
+                <a href="{% url 'delete_user' user.0 %}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    
+    <a id=new href="{% url 'insert_user' %}">Add New User</a>
+    
+    </div>
+</body>
+</html>
